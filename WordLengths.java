@@ -3,15 +3,20 @@ import edu.duke.*;
 public class WordLengths {
 
     public void countWordLengths (FileResource resource, int[] counts) {
-        for (String words : resource.words()) {
-            if (words.length()==1) {
-                if(Character.isLetter(Integer.parseInt(words)));
-                break;
+        for (String word : resource.words()) {
+            int wordLength = word.length();
+            if (Character.isLetter(word.charAt(wordLength-1)) == false) {
+                wordLength--;
             }
-            if (words.length()>counts.length) {
+            if (wordLength==1) {
+                if(!Character.isLetter(word.charAt(wordLength-1))){
+                    continue;
+                }
+            }
+            if (wordLength>counts.length) {
                 counts[counts.length-1]++;
             }
-            else counts[words.length()]++;
+            else counts[wordLength]++;
         }
     }
 
