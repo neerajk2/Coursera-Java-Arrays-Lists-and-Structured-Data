@@ -8,11 +8,6 @@ public class WordLengths {
             if (Character.isLetter(word.charAt(wordLength-1)) == false) {
                 wordLength--;
             }
-            if (wordLength==1) {
-                if(!Character.isLetter(word.charAt(wordLength-1))){
-                    continue;
-                }
-            }
             if (wordLength>counts.length) {
                 counts[counts.length-1]++;
             }
@@ -25,7 +20,7 @@ public class WordLengths {
         int[] counts = new int[31];
         countWordLengths(f,counts);
         int maxDex = indexOfMax(counts);
-        for (int i=0; i<counts.length; i++) {
+        for (int i=1; i<counts.length; i++) {
             System.out.println("Number of words with length "+i+" are "+counts[i]);
             if (i==maxDex) System.out.println("This is the most common length of words.");
         }
