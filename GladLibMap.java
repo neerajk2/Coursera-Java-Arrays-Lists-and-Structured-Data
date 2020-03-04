@@ -125,7 +125,7 @@ public class GladLibMap {
         printOut(story, 60);
         System.out.println("\n");
         System.out.println("Number of replaced words: "+usedWords.size());
-        printUsedWords();
+        totalWordsInMap();
     }
 
     public void printUsedWords() {
@@ -133,6 +133,15 @@ public class GladLibMap {
             System.out.println(usedWords.get(i));
         }
     }
+    
+    public void totalWordsInMap() {
+        int totalWords = 0;
+        for (String key : myMap.keySet()) {
+            totalWords += myMap.get(key).size();
+        }
+        System.out.println("Total words to choose from are: "+totalWords);
+    }
+
 
     public static void main (String[] args) {
         GladLibMap story = new GladLibMap();
